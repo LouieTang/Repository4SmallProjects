@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.player {
+    display: block;
+    margin: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+#mOrF {
+    display: none;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 2;
+}
+
+.radio-button-label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #0074d9;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #0074d9;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+
+input[type="radio"]:checked + label {
+    background-color: #2ecc40;
+    border-color: #2ecc40;
+}
+
+li{
+    list-style-type: none;
+    padding: 0;
+}
+
+#playerInputs {
+    float: left;
+    width: 40%;
+}
+
+.player-input {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.left-column {
+    float: left;
+    width: 50%;
+}
+
+.playerGender{
+    display: inline-block;
+    margin: 10px;
+}
+
+.right-column {
+    float: right;
+    width: 50%;
+}
+
+#resetPage, #endGame, #theirGoal{
+    display: none;
+}
+
+#genderRatio{
+    display: block;
+}
+

@@ -11,5 +11,9 @@ Project 2: simple-calculator
 - Time Spent: 2h35m
 
 Project 3: handle-HTTP-requests
-- Dates Worked On: Oct. 11
-- Time Spent: 
+- Dates Worked On: Oct. 11, Oct. 12
+- Time Spent: 1h35m
+
+Project 4: budget-tracker
+- Dates Worked On: Oct. 12
+- Time Spent: 1h00m

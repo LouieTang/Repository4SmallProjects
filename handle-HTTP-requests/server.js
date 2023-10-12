@@ -8,8 +8,13 @@ app.use(express.urlencoded({extended: false}));
 app.use(cors());
 
 app.get('/api/items', (req, res) => {
-  res.send(req.header('User-Agent'));
+  res.send(req.header('content-type'));
 });
+
+app.post('/api/items', (req,res) => {
+  res.send(req.header('content-type'));
+})
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

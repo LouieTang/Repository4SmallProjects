@@ -1,10 +1,16 @@
 let prevValue = null;
+let lastValue = null;
 let prevOp = null;
+let lastOp = null;
+let lastPerform  = 0; // 0 - number, 1 - operation
+let decimal = 0; // 0 - no decimal, 1 - decimal
+let decValue = 0;
+
 let total = 0;
 
 document.getElementById("button-C").addEventListener("click", buttonClear); // 0
 document.getElementById("button-plusminus").addEventListener("click", function(){
-    alert("not available");
+    plusMinus();
 }); // 1
 document.getElementById("button-percent").addEventListener("click", function(){
     operate(2);
@@ -52,66 +58,118 @@ document.getElementById("button-0").addEventListener("click", function(){
     addNumber(0);
 }); // 16
 document.getElementById("button-deci").addEventListener("click", function(){
-    alert("not available");
+    addDecimal();
 }); // 17
 document.getElementById("button-equal").addEventListener("click", function(){
     calculateTotal();
 }); // 18
 
+function addDecimal(){
+    if(decimal === 1){
+        return;
+    }
+    else{
+        decimal = 1;
+        displayText(total + ".");
+    }
+}
+
+function plusMinus(){
+    total *= -1;
+    displayText(total);
+}
 
 function buttonClear(){
     displayText(0);
     total = 0;
+    decimal = 0;
     prevValue = null;
 }
 
 function addNumber(value){
-    if(total == 0){
-        if(value == 0){
-            displayText(0);
+    lastPerform = 0;
+    if(decimal === 1){
+        
+    }
+    else{
+        if(total == 0){
+            if(value == 0){
+                displayText(0);
+            }
+            else{
+                total = value;
+                displayText(total);
+            }
+        }
+        else if(total < 0){
+            total = total * 10;
+            total -= value;
+            displayText(total);
         }
         else{
-            total = value;
+            total = total * 10;
+            total += value;
             displayText(total);
         }
     }
-    else{
-        total = total * 10;
-        total += value;
-        displayText(total);
-    }
+    
     console.log(total);
 }
 
 function operate(operator){
+    if(lastPerform === 1){
+        return;
+    }
     if(operator == 2){
         total = total/100;
         displayText(total);
+        lastPerform = 1;
     }
     else if(operator == 3){ // divide
         if(prevValue == null){
             prevValue = total;
             total = 0;
+            decimal = 0;
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
         }
         else{
             prevValue = calculate(prevValue, total, prevOp);
             displayText(prevValue);
             total = 0;
+            decimal = 0;
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
+
         }
     }
     else if(operator == 7){ // multiply
         if(prevValue == null){
             prevValue = total;
             total = 0;
+            decimal = 0;
+
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
+
         }
         else{
             prevValue = calculate(prevValue, total, prevOp);
             displayText(prevValue);
             total = 0;
+            decimal = 0;
+
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
+
 
         }
     }
@@ -119,14 +177,26 @@ function operate(operator){
         if(prevValue == null){
             prevValue = total;
             total = 0;
+            decimal = 0;
+
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
+
 
         }
         else{
             prevValue = calculate(prevValue, total, prevOp);
             displayText(prevValue);
             total = 0;
+            decimal = 0;
+
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
+
 
         }
     }
@@ -134,14 +204,24 @@ function operate(operator){
         if(prevValue == null){
             prevValue = total;
             total = 0;
+            decimal = 0;
+
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
 
         }
         else{
             prevValue = calculate(prevValue, total, prevOp);
             displayText(prevValue);
             total = 0;
+            decimal = 0;
+
             prevOp = operator;
+            lastOp = operator;
+            lastPerform = 1;
+
 
         }
     }
@@ -171,13 +251,15 @@ function calculate(prev, curr, operator){
         return prev+curr;
     }
     else{ // return previous value for multiple equal presses
-        return null;
+        total=lastValue;
+        return calculate(prev,lastValue,lastOp);
     }
 }
 
 function calculateTotal(){
     prevValue = calculate(prevValue, total, prevOp);
     displayText(prevValue);
+    lastValue = total;
     total = 0;
     prevOp = null;
 }

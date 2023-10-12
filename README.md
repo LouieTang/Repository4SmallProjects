@@ -7,8 +7,8 @@ Project 1: flatball-stat-tracker
 - Time Spent: 5h15m
 
 Project 2: simple-calculator
-- Dates Worked On: Oct. 10
-- Time Spent: 2h10m
+- Dates Worked On: Oct. 10, Oct. 11, Oct. 12
+- Time Spent: 2h35m
 
 Project 3: handle-HTTP-requests
 - Dates Worked On: Oct. 11

@@ -1,0 +1,24 @@
+*{
+    border: 1px solid red;
+}
+
+
+#calc-display{
+    text-align: right;
+    height:50px;
+    border: 1px solid blue;
+    margin:15px
+}
+
+.button-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.take2{
+    grid-column: span 2;
+}
+
+.button-item{
+    padding:10px;
+}

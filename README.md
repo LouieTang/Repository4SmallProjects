@@ -14,6 +14,14 @@ Project 3: handle-HTTP-requests
 - Dates Worked On: Oct. 11, Oct. 12
 - Time Spent: 1h35m
 
+Project A: javascript-playground
+- Dates Worked On: Oct. 12
+- Time Spent: 1h15m
+
 Project 4: budget-tracker
 - Dates Worked On: Oct. 12
 - Time Spent: 1h00m
+
+Project B: css-playground
+- Dates Worked On: Oct. 12
+- Time Spent 0h15m

@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
+import Button from './Button';
 
-const Header = (props) => {
+
+const Header = ({title}) => {
   return (
-    <header>
-        <h1>{props.title}</h1>
+    <header className="d-flex justify-content-around mt-5" style={{ border: '1px solid blue' }}>
+        <h1>{title}</h1>
+        <Button buttonContent={"Add"}/>
     </header>
   )
 }
